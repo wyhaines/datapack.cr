@@ -1,0 +1,9 @@
+name: datapack
+version: 0.1.0
+
+authors:
+  - Kirk Haines <wyhaines@gmail.com>
+
+crystal: 1.2.0
+
+license: MIT
