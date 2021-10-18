@@ -2,8 +2,9 @@ require "./spec_helper"
 require "digest/sha256"
 
 describe Datapack do
-  it "can add a single file to the data store" do
-  
+  it "can add a single text-type file to the data store" do
+    Datapack.add("./spec/data/random.txt")
+    pp Datapack::Data
   end
 
   it "can add a full directory structure to the data store" do

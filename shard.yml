@@ -6,4 +6,13 @@ authors:
 
 crystal: 1.2.0
 
-license: MIT
+license: "Apache 2.0"
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.14
+
+dependencies:
+  splay_tree_map:
+    github: wyhaines/splay_tree_map.cr
