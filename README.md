@@ -1,6 +1,13 @@
 # datapack
 
-TODO: Write a description here
+My inspiration:
+
+```
+would be cool
+everything in one assembly
+a single executable to do everything
+actually i dont think crystal can pack images and files into the result executable
+```
 
 ## Installation
 
