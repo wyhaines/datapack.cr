@@ -5,7 +5,7 @@ require "mime"
 # This is an exceptionally simple script that exists only to provide an easy way to
 # generate a list of file names and mime types if one is compiling a full directory tree
 # of files into the executable.
-mimemap = {
+{
   "bz2"   => "application/bzip2",
   "cr"    => "text/crystal",
   "css"   => "text/css; charset=utf-8",

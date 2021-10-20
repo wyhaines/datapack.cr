@@ -41,4 +41,14 @@ describe Datapack do
     data_files.includes?(Path["./spec/data/random.txt"]).should be_true
     data_files.includes?(Path["./spec/data/random.txt.gz"]).should be_true
   end
+
+  it "find? works with a Path" do
+    Datapack::Data.find?(Path["./spec/data/random.txt"]).not_nil!.path.basename.should eq "random.txt"
+    Datapack::Data.find?(Path["./this/is/not/here"]).should be_nil
+  end
+
+  it "find? works with a String" do
+    Datapack::Data.find?("./spec/data/random.txt").not_nil!.path.basename.should eq "random.txt"
+    Datapack::Data.find?("./this/is/not/here").should be_nil
+  end
 end

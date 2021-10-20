@@ -16,9 +16,9 @@ module Datapack
 
   class Store
     getter index
-    @index = SplayTreeMap(String, SplayTreeMap(String, Array(Path))).new do |s, k|
-      s[k] = SplayTreeMap(String, Array(Path)).new do |s, k|
-        s[k] = [] of Path
+    @index = SplayTreeMap(String, SplayTreeMap(String, Array(Path))).new do |s1, k1|
+      s1[k1] = SplayTreeMap(String, Array(Path)).new do |s2, k2|
+        s2[k2] = [] of Path
       end
     end
 
@@ -97,6 +97,15 @@ module Datapack
       find_all_keys(key_fragment).first
     end
 
+    def find_key?(key_fragment : String)
+      find_key?(Path.new(key_fragment))
+    end
+
+    def find_key?(key_fragment : Path)
+      possible_keys = find_all_keys(key_fragment)
+      possible_keys.empty? ? possible_keys.first : nil
+    end
+
     def find_all(key_fragment : String)
       find_all_keys(Path.new(key_fragment))
     end
@@ -112,10 +121,8 @@ module Datapack
     def find(key_fragment : Path)
       if key_fragment.parts.first =~ /:$/
         namespace = key_fragment.parts.first.rstrip(':')
-        actual_key = Path[key_fragment.parts[1..-1]]
       else
         namespace = "default"
-        actual_key = key_fragment
       end
       @data[namespace][find_key(key_fragment)]
     end
@@ -127,12 +134,11 @@ module Datapack
     def find?(key_fragment : Path)
       if key_fragment.parts.first =~ /:$/
         namespace = key_fragment.parts.first.rstrip(':')
-        actual_key = Path[key_fragment.parts[1..-1]]
       else
         namespace = "default"
-        actual_key = key_fragment
       end
-      @data[namespace][find_key(key_fragment)]
+      possible_key = find_key?(key_fragment)
+      possible_key.nil? ? nil : @data[namespace][possible_key]
     end
   end
 
@@ -193,7 +199,7 @@ module Datapack
     {%
       namespace = options[:namespace] || "default"
       lines = run("../src/find", path).split("\n")
-      files = lines.map { |line| line.split("\t") }
+      files = lines.map(&.split("\t"))
     %}
     {% for file in files %}
       {% unless file[0] == "" %}
