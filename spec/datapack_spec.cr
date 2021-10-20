@@ -29,6 +29,16 @@ describe Datapack do
     Datapack::Data.find_key("spec:/spec_helper.cr").should eq Path.new("./spec/spec_helper.cr")
   end
 
-  it "can fetch data from an http source" do
+  it "can find a specific file" do
+    Datapack::Data["./src/find.cr"].path.basename.should eq "find.cr"
+    Datapack::Data["spec:/./spec/datapack_spec.cr"].path.basename.should eq "datapack_spec.cr"
+    Datapack::Data["spec:/./spec/datapack_spec.cr"].mimetype.should eq "text/crystal"
+  end
+
+  it "can find everything in a complex, partial path" do
+    data_files = Datapack::Data.find_all("default:/spec/data")
+    data_files.size.should eq 2
+    data_files.includes?(Path["./spec/data/random.txt"]).should be_true
+    data_files.includes?(Path["./spec/data/random.txt.gz"]).should be_true
   end
 end
