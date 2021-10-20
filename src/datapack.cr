@@ -82,7 +82,6 @@ module Datapack
       end
       first = actual_parts.first
       rest = actual_parts[1..-1]?
-      puts "#{namespace} -- #{first}"
       r = @index[namespace][first]
       if rest
         rest.each { |part| r = r & @index[namespace][part] }

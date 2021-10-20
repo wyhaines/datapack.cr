@@ -26,7 +26,7 @@ describe Datapack do
 
   it "can add files to different namespaces in the data store" do
     Datapack.add_path("./spec", "**/*.cr", namespace: "spec")
-    Datapack::Data.find_key("spec:/spec_helper").should eq Path.new("./spec/spec_helper.cr")
+    Datapack::Data.find_key("spec:/spec_helper.cr").should eq Path.new("./spec/spec_helper.cr")
   end
 
   it "can fetch data from an http source" do
