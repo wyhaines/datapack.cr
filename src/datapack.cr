@@ -103,7 +103,7 @@ module Datapack
 
     def find_key?(key_fragment : Path)
       possible_keys = find_all_keys(key_fragment)
-      possible_keys.empty? ? possible_keys.first : nil
+      possible_keys.empty? ? nil : possible_keys.first
     end
 
     def find_all(key_fragment : String)
@@ -137,6 +137,7 @@ module Datapack
       else
         namespace = "default"
       end
+
       possible_key = find_key?(key_fragment)
       possible_key.nil? ? nil : @data[namespace][possible_key]
     end
