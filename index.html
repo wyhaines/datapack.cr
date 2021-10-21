@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.1.1">
+<meta name="crystal_docs.project_version" content="master">
+<meta name="crystal_docs.project_name" content="datapack">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="datapack">
+  <title>datapack master</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          datapack
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="datapack/Datapack" data-name="datapack">
+      <a href="Datapack.html">Datapack</a>
+      
+        <ul>
+  
+  <li class=" " data-id="datapack/Datapack/Resource" data-name="datapack::resource">
+      <a href="Datapack/Resource.html">Resource</a>
+      
+    </li>
+  
+  <li class=" " data-id="datapack/Datapack/Store" data-name="datapack::store">
+      <a href="Datapack/Store.html">Store</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="datapack" class="anchor" href="#datapack">  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>datapack</h1>
+<p>While hanging out the other day in Discord, I saw these words in a message:</p>
+<pre><code class="language-crystal">would be cool
+everything <span class="k">in</span> one assembly
+a single executable to <span class="k">do</span> everything
+actually i dont think crystal can pack images and files into the result executable</code></pre>
+<p>The little bird in my brain said, &quot;Oh, Crystal absolutely can do that, with the help of macros!&quot;</p>
+<p>This shard provides a simple way to pack files into your executable, sorted by namespaces, should you so choose, and to find and access them as needed.</p>
+<p>It is not a full <a href="https://github.com/schovi/baked_file_system">baked-filesystem</a>, but instead seeks to keep things simple, fast, and easy to use. Accordingly, it also doesn't even attempt to compress any data. It stores every file exactly as it is, so if you want to compress something, you'll have to do that yourself.</p>
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+<ol>
+<li>
+<p>Add the dependency to your <code>shard.yml</code>:</p>
+<pre><code class="language-yaml">dependencies:
+  datapack:
+    github: your-github-user/datapack</code></pre>
+</li>
+<li>
+<p>Run <code>shards install</code></p>
+</li>
+</ol>
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;datapack&quot;</span></code></pre>
+<p>There are two macros provided for packing data into your executable. The first</p>
+<pre><code class="language-crystal"><span class="t">Datapack</span>.add <span class="s">&quot;./assets/icon.png&quot;</span>
+<span class="t">Datapack</span>.add <span class="s">&quot;./assets/styles.css&quot;</span>, namespace: <span class="s">&quot;layout&quot;</span>
+<span class="t">Datapack</span>.add <span class="s">&quot;./stuff/fidget.ts&quot;</span>, namespace: <span class="s">&quot;extras&quot;</span>, mimetype: <span class="s">&quot;text/qttranslation+xml&quot;</span></code></pre>
+<p>The <code>#add</code> macro takes a path to a file, and optionally a namespace and a mimetype, and adds it to the datapack. If no namespace is provided, it defaults to the &quot;default&quot; namespace. If no mimetype is provided, the macro will make a modest attempt to apply a correct mimetype, but the macro supports only a very small set of mime-types.</p>
+<p>The current set of extensions and mime types applied:</p>
+<p>| Extension |            Mime Type            |
+|-----------|---------------------------------|
+|    bz2    | application/bzip2               |
+|    cr     | text/crystal                    |
+|    css    | text/css; charset=utf-8         |
+|    csv    | text/csv; charset=utf-8         |
+|    eot    | application/vnd.ms-fontobject   |
+|    gif    | image/gif                       |
+|    gz     | application/gzip                |
+|    htm    | text/html; charset=utf-8        |
+|    html   | text/html; charset=utf-8        |
+|    ico    | image/x-icon                    |
+|    jpg    | image/jpeg                      |
+|    jpeg   | image/jpeg                      |
+|    js     | text/javascript; charset=utf-8  |
+|    json   | application/json                |
+|    map    | application/json                |
+|    otf    | application/font-sfnt           |
+|    pdf    | application/pdf                 |
+|    png    | image/png                       |
+|    rb     | text/ruby                       |
+|    svg    | image/svg+xml                   |
+|    tar    | application/tar                 |
+|    ttf    | application/font-sfnt           |
+|    txt    | text/plain; charset=utf-8       |
+|    xml    | text/xml; charset=utf-8         |
+|    wasm   | application/wasm                |
+|    webp   | image/webp                      |
+|    woff   | application/font-woff           |
+|    woff2  | application/font-woff2          |
+|    yml    | text/yaml                       |
+|    yaml   | text/yaml                       |
+|    zip    | application/zip                 |</p>
+<p>The other macro, <code>#add_path</code>, takes a path to a directory, one or more file machers, and an option namespace, and adds all files under the directory that match any of the file matchers. If no namespace is provided, it defaults to the &quot;default&quot; namespace.</p>
+<pre><code class="language-crystal"><span class="t">Datapack</span>.add_path(<span class="s">&quot;./src&quot;</span>, <span class="s">&quot;**/*.cr&quot;</span>)
+<span class="t">Datapack</span>.add_path(<span class="s">&quot;./spec&quot;</span>, <span class="s">&quot;**/*.cr&quot;</span>, namespace: <span class="s">&quot;spec&quot;</span>)
+<span class="t">Datapack</span>.add_path(<span class="s">&quot;./assets&quot;</span>, <span class="s">&quot;**/*.{png,jpg,gif}&quot;</span>, namespace: <span class="s">&quot;images&quot;</span>)</code></pre>
+<p>Adding whole directory trees of files is done with the help of an external utility, written into the <a href="https://github.com/wyhaines/datapack.cr/blob/master/src/find.cr">find.cr</a> file. It makes compilation somewhat slower, since Crystal will compile the find utility first, in order to run it. The find utility, in turn, returns file names, and mime types for those files, according to the file match globs that it was given.</p>
+<p>The other half of this shard is the set of methods to use to access the files that are compiled into the executable.</p>
+<p>All data is stored in a nominally Hash-like data store at <code><a href="Datapack.html#Data">Datapack::Data</a></code>. New entries can be inserted at runtime using <code>#[]=</code>, and they can be retrieved using <code>#[]</code>. Keys are of type <code>String</code> or <code>Path</code>, and are all treated as <code>Path</code>s. They can be prefixed with a namespace: <code>namespace:/this/is/a/relative/path</code> and <code>otherspace://this/is/an/absolute/path</code>. If no namespace is provided, <code>default</code> is assumed.</p>
+<p>If one wants to search the stored data in a more fuzzy way, one can any of a set of class methods on <code><a href="Datapack.html#Data">Datapack::Data</a></code>.</p>
+<pre><code class="language-crystal"><span class="t">Datapack</span><span class="t">::</span><span class="t">Data</span>.find(<span class="s">&quot;./spec/data/random.txt&quot;</span>)
+<span class="t">Datapack</span><span class="t">::</span><span class="t">Data</span>.find_all(<span class="t">Path</span>[<span class="s">&quot;assets:/images&quot;</span>])
+<span class="t">Datapack</span><span class="t">::</span><span class="t">Data</span>.find_key?(<span class="t">Path</span>[<span class="s">&quot;data:/prices/nav.csv&quot;</span>])</code></pre>
+<p>The <code>find</code>, <code>find?</code>, and <code>find_all</code> methods return instances of <code>Resource</code>, which are structures containing the file <code>path</code>, <code>mimetype</code>, <code>namespace</code>, and <code>data</code>.</p>
+<h2><a id="development" class="anchor" href="#development">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Development</h2>
+<p><span class="flag orange">TODO</span>  Write development instructions here</p>
+<h2><a id="contributing" class="anchor" href="#contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributing</h2>
+<ol>
+<li>Fork it (<a href="https://github.com/your-github-user/datapack/fork">https://github.com/your-github-user/datapack/fork</a>)</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+</ol>
+<h2><a id="contributors" class="anchor" href="#contributors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributors</h2>
+<ul>
+<li><a href="https://github.com/your-github-user">Kirk Haines</a> - creator and maintainer</li>
+</ul>
+</div>
+</body>
+</html>
