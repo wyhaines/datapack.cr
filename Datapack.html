@@ -111,7 +111,7 @@
   </h2>
   
     
-      <a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L3" target="_blank">
+      <a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L3" target="_blank">
         datapack.cr
       </a>
     
@@ -182,6 +182,8 @@
       <li class="entry-summary">
         <a href="#add%28path%2Cnamespace%3D%22default%22%2Cmimetype%3Dnil%29-macro" class="signature"><strong>add</strong>(path, namespace = <span class="s">&quot;default&quot;</span>, mimetype = <span class="n">nil</span>)</a>
         
+          <div class="summary"><p>The <code><a href="Datapack.html#add%28path%2Cnamespace%3D%22default%22%2Cmimetype%3Dnil%29-macro">#add</a></code> macro takes a path to a file, and optionally a namespace and a mimetype, and adds it to the datapack.</p></div>
+        
       </li>
     
       <li class="entry-summary">
@@ -220,7 +222,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L216" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L284" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -247,10 +249,52 @@
         <a class="method-permalink" href="#add%28path%2Cnamespace%3D%22default%22%2Cmimetype%3Dnil%29-macro">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>The <code><a href="Datapack.html#add%28path%2Cnamespace%3D%22default%22%2Cmimetype%3Dnil%29-macro">#add</a></code> macro takes a path to a file, and optionally a namespace and a mimetype, and
+adds it to the datapack. If no namespace is provided, it defaults to the &quot;default&quot;
+namespace. If no mimetype is provided, the macro will make a modest attempt to apply a
+correct mimetype, but the macro supports only a very small set of mime-types.</p>
+<p>The current set of extensions and mime types applied:</p>
+<p>| Extension |            Mime Type            |
+|-----------|---------------------------------|
+|    bz2    | application/bzip2               |
+|    cr     | text/crystal                    |
+|    css    | text/css; charset=utf-8         |
+|    csv    | text/csv; charset=utf-8         |
+|    eot    | application/vnd.ms-fontobject   |
+|    gif    | image/gif                       |
+|    gz     | application/gzip                |
+|    htm    | text/html; charset=utf-8        |
+|    html   | text/html; charset=utf-8        |
+|    ico    | image/x-icon                    |
+|    jpg    | image/jpeg                      |
+|    jpeg   | image/jpeg                      |
+|    js     | text/javascript; charset=utf-8  |
+|    json   | application/json                |
+|    map    | application/json                |
+|    otf    | application/font-sfnt           |
+|    pdf    | application/pdf                 |
+|    png    | image/png                       |
+|    rb     | text/ruby                       |
+|    svg    | image/svg+xml                   |
+|    tar    | application/tar                 |
+|    ttf    | application/font-sfnt           |
+|    txt    | text/plain; charset=utf-8       |
+|    xml    | text/xml; charset=utf-8         |
+|    wasm   | application/wasm                |
+|    webp   | image/webp                      |
+|    woff   | application/font-woff           |
+|    woff2  | application/font-woff2          |
+|    yml    | text/yaml                       |
+|    yaml   | text/yaml                       |
+|    zip    | application/zip                 |</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L148" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L216" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -266,7 +310,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L199" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L267" target="_blank">View source</a>]
         
       </div>
     </div>

@@ -113,7 +113,7 @@
   </h2>
   
     
-      <a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L17" target="_blank">
+      <a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L18" target="_blank">
         datapack.cr
       </a>
     
@@ -158,6 +158,8 @@
       <li class="entry-summary">
         <a href="#%5B%5D%28key%3APath%29-instance-method" class="signature"><strong>#[]</strong>(key : Path)</a>
         
+          <div class="summary"><p>Get a value indexed by the given path in the datapack.</p></div>
+        
       </li>
     
       <li class="entry-summary">
@@ -168,10 +170,19 @@
       <li class="entry-summary">
         <a href="#%5B%5D%3D%28key%3APath%2Cvalue%29-instance-method" class="signature"><strong>#[]=</strong>(key : Path, value)</a>
         
+          <div class="summary"><p>Set a value within the the datapack.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#%5B%5D%3D%28key%3AString%2Cvalue%29-instance-method" class="signature"><strong>#[]=</strong>(key : String, value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find</strong>(key_fragment : Path)</a>
+        
+          <div class="summary"><p>Return the <code><a href="../Datapack/Resource.html">Resource</a></code> value for the first key which matches all of the elements of the key fragment.</p></div>
         
       </li>
     
@@ -181,7 +192,9 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#find%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find</strong>(key_fragment : Path)</a>
+        <a href="#find%3F%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find?</strong>(key_fragment : Path)</a>
+        
+          <div class="summary"><p>Return the <code><a href="../Datapack/Resource.html">Resource</a></code> value for the first key which matches all of the elements of the key fragment.</p></div>
         
       </li>
     
@@ -191,7 +204,9 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#find%3F%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find?</strong>(key_fragment : Path)</a>
+        <a href="#find_all%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find_all</strong>(key_fragment : Path)</a>
+        
+          <div class="summary"><p>Return all of the <code><a href="../Datapack/Resource.html">Resource</a></code> values for all keys which match all of the elements of the key fragment.</p></div>
         
       </li>
     
@@ -201,7 +216,9 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#find_all%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find_all</strong>(key_fragment : Path)</a>
+        <a href="#find_all_keys%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find_all_keys</strong>(key_fragment : Path)</a>
+        
+          <div class="summary"><p>Find and return an array of all keys which match the key fragment provided as an argument.</p></div>
         
       </li>
     
@@ -211,7 +228,9 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#find_all_keys%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find_all_keys</strong>(key_fragment : Path)</a>
+        <a href="#find_key%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find_key</strong>(key_fragment : Path)</a>
+        
+          <div class="summary"><p>Find the first key which matches all of the elements of a key fragment.</p></div>
         
       </li>
     
@@ -221,17 +240,14 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#find_key%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find_key</strong>(key_fragment : Path)</a>
+        <a href="#find_key%3F%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find_key?</strong>(key_fragment : Path)</a>
+        
+          <div class="summary"><p>Find the first key which matches all of the elements of a key fragment.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#find_key%3F%28key_fragment%3AString%29-instance-method" class="signature"><strong>#find_key?</strong>(key_fragment : String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#find_key%3F%28key_fragment%3APath%29-instance-method" class="signature"><strong>#find_key?</strong>(key_fragment : Path)</a>
         
       </li>
     
@@ -291,7 +307,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -318,10 +334,19 @@
         <a class="method-permalink" href="#%5B%5D%28key%3APath%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Get a value indexed by the given path in the datapack. If the path is prefixed with a
+namespace:</p>
+<pre><code class="language-crystal">namespace<span class="n">:/</span>path<span class="s">/to/</span>file.txt</code></pre>
+<p>The path will be searched for within that namespace. Otherwise, it will be searched
+for within the <code>default</code> namespace.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L31" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L41" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -337,7 +362,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -350,10 +375,17 @@
         <a class="method-permalink" href="#%5B%5D%3D%28key%3APath%2Cvalue%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Set a value within the the datapack. As with getting a value, the path can be prefixed
+with a namespace, and if no namespace is provided, <code>default</code> will be used. The value to be
+stored must be an instance of <code><a href="../Datapack/Resource.html">Resource</a></code>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L46" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L59" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -369,7 +401,29 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L60" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L73" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find(key_fragment:Path)-instance-method">
+      <div class="signature">
+        
+        def <strong>find</strong>(key_fragment : Path)
+
+        <a class="method-permalink" href="#find%28key_fragment%3APath%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Return the <code><a href="../Datapack/Resource.html">Resource</a></code> value for the first key which matches all of the elements of the
+key fragment. An exception will be raised if no key is found.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L142" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -385,23 +439,29 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L117" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L151" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="find(key_fragment:Path)-instance-method">
+    <div class="entry-detail" id="find?(key_fragment:Path)-instance-method">
       <div class="signature">
         
-        def <strong>find</strong>(key_fragment : Path)
+        def <strong>find?</strong>(key_fragment : Path)
 
-        <a class="method-permalink" href="#find%28key_fragment%3APath%29-instance-method">#</a>
+        <a class="method-permalink" href="#find%3F%28key_fragment%3APath%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Return the <code><a href="../Datapack/Resource.html">Resource</a></code> value for the first key which matches all of the elements of the
+key fragment. A <code>nil</code> will be returned if no key is found.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L121" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L157" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -417,23 +477,29 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L130" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L168" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="find?(key_fragment:Path)-instance-method">
+    <div class="entry-detail" id="find_all(key_fragment:Path)-instance-method">
       <div class="signature">
         
-        def <strong>find?</strong>(key_fragment : Path)
+        def <strong>find_all</strong>(key_fragment : Path)
 
-        <a class="method-permalink" href="#find%3F%28key_fragment%3APath%29-instance-method">#</a>
+        <a class="method-permalink" href="#find_all%28key_fragment%3APath%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Return all of the <code><a href="../Datapack/Resource.html">Resource</a></code> values for all keys which match all of the elements of the
+key fragment.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L134" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L132" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -449,23 +515,31 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L109" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L136" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="find_all(key_fragment:Path)-instance-method">
+    <div class="entry-detail" id="find_all_keys(key_fragment:Path)-instance-method">
       <div class="signature">
         
-        def <strong>find_all</strong>(key_fragment : Path)
+        def <strong>find_all_keys</strong>(key_fragment : Path)
 
-        <a class="method-permalink" href="#find_all%28key_fragment%3APath%29-instance-method">#</a>
+        <a class="method-permalink" href="#find_all_keys%28key_fragment%3APath%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Find and return an array of all keys which match the key fragment provided as an argument.
+A key fragment is expressed as a path. Each of the elements of the path will be matched
+against an index of fragments, and all keys which contain all elements of the key fragment
+will be returned.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L113" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L87" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -481,23 +555,29 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L70" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L105" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="find_all_keys(key_fragment:Path)-instance-method">
+    <div class="entry-detail" id="find_key(key_fragment:Path)-instance-method">
       <div class="signature">
         
-        def <strong>find_all_keys</strong>(key_fragment : Path)
+        def <strong>find_key</strong>(key_fragment : Path)
 
-        <a class="method-permalink" href="#find_all_keys%28key_fragment%3APath%29-instance-method">#</a>
+        <a class="method-permalink" href="#find_key%28key_fragment%3APath%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Find the first key which matches all of the elements of a key fragment.
+An exception will be raised if no key is found.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L74" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L111" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -513,23 +593,29 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L92" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L115" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="find_key(key_fragment:Path)-instance-method">
+    <div class="entry-detail" id="find_key?(key_fragment:Path)-instance-method">
       <div class="signature">
         
-        def <strong>find_key</strong>(key_fragment : Path)
+        def <strong>find_key?</strong>(key_fragment : Path)
 
-        <a class="method-permalink" href="#find_key%28key_fragment%3APath%29-instance-method">#</a>
+        <a class="method-permalink" href="#find_key%3F%28key_fragment%3APath%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Find the first key which matches all of the elements of a key fragment.
+A <code>nil</code> will be returned if no key is found.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L96" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L121" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -545,23 +631,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L100" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="find_key?(key_fragment:Path)-instance-method">
-      <div class="signature">
-        
-        def <strong>find_key?</strong>(key_fragment : Path)
-
-        <a class="method-permalink" href="#find_key%3F%28key_fragment%3APath%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L104" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L126" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -577,7 +647,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wyhaines/datapack.cr/blob/bf5f35eeea4d2c71afadc74864ec93874a5ffb88/src/datapack.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/wyhaines/datapack.cr/blob/bfe2067541f800a9c7ef4829c328a7ba9d1b9be8/src/datapack.cr#L19" target="_blank">View source</a>]
         
       </div>
     </div>
