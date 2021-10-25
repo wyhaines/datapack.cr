@@ -1,3 +1,7 @@
+![Datapack CI](https://img.shields.io/github/workflow/status/wyhaines/datapack.cr/Datapack%20CI?style=for-the-badge&logo=GitHub)
+[![GitHub release](https://img.shields.io/github/release/wyhaines/datapack.cr.svg?style=for-the-badge)](https://github.com/wyhaines/datapack.cr/releases)
+![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/wyhaines/datapack.cr/latest?style=for-the-badge)
+
 # datapack
 
 While hanging out the other day in Discord, I saw these words in a message:
@@ -105,11 +109,11 @@ The `find`, `find?`, and `find_all` methods return instances of `Resource`, whic
 
 ## Development
 
-TODO: Write development instructions here
+Fork the repository, and work from branches in your fork. When you have a PR ready, submit a PR request. Also, [open an issue](https://github.com/wyhaines/datapack.cr/issues/new/choose) to share what the problem is that your PR will address, and link your PR with the issue.
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/datapack/fork>)
+1. Fork it (<https://github.com/wyhaines/datapack/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -117,4 +121,7 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [Kirk Haines](https://github.com/your-github-user) - creator and maintainer
+- [Kirk Haines](https://github.com/wyhaines) - creator and maintainer
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/wyhaines/datapack.cr?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/wyhaines/datapack.cr?style=for-the-badge)
