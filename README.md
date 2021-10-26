@@ -2,7 +2,7 @@
 [![GitHub release](https://img.shields.io/github/release/wyhaines/datapack.cr.svg?style=for-the-badge)](https://github.com/wyhaines/datapack.cr/releases)
 ![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/wyhaines/datapack.cr/latest?style=for-the-badge)
 
-# datapack
+# [datapack](https://wyhaines.github.io/datapack.cr/)
 
 While hanging out the other day in Discord, I saw these words in a message:
 
