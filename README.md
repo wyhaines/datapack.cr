@@ -26,7 +26,7 @@ It is not a full [baked-filesystem](https://github.com/schovi/baked_file_system)
    ```yaml
    dependencies:
      datapack:
-       github: your-github-user/datapack
+       github: wyhaines/datapack.cr
    ```
 
 2. Run `shards install`
@@ -113,7 +113,7 @@ Fork the repository, and work from branches in your fork. When you have a PR rea
 
 ## Contributing
 
-1. Fork it (<https://github.com/wyhaines/datapack/fork>)
+1. Fork it (<https://github.com/wyhaines/datapack.cr/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
