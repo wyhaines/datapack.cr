@@ -179,6 +179,7 @@ module Datapack
   #
   # The current set of extensions and mime types applied:
   #
+  # ```
   # | Extension |            Mime Type            |
   # |-----------|---------------------------------|
   # |    bz2    | application/bzip2               |
@@ -212,6 +213,7 @@ module Datapack
   # |    yml    | text/yaml                       |
   # |    yaml   | text/yaml                       |
   # |    zip    | application/zip                 |
+  #```
   #
   macro add(path, namespace = "default", mimetype = nil)
     {% if file_exists? path %}
