@@ -11,7 +11,7 @@ license: "Apache 2.0"
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 0.14
+    version: ~> 1.0.0
 
 dependencies:
   splay_tree_map:
