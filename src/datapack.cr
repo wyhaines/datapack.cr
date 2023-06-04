@@ -213,7 +213,7 @@ module Datapack
   # |    yml    | text/yaml                       |
   # |    yaml   | text/yaml                       |
   # |    zip    | application/zip                 |
-  #```
+  # ```
   #
   macro add(path, namespace = "default", mimetype = nil)
     {% if file_exists? path %}

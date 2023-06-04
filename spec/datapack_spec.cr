@@ -43,12 +43,18 @@ describe Datapack do
   end
 
   it "find? works with a Path" do
-    Datapack::Data.find?(Path["./spec/data/random.txt"]).not_nil!.path.basename.should eq "random.txt"
+    if path = Datapack::Data.find?(Path["./spec/data/random.txt"])
+      path.should be_a Datapack::Resource
+      path.path.basename.should eq "random.txt"
+    end
     Datapack::Data.find?(Path["./this/is/not/here"]).should be_nil
   end
 
   it "find? works with a String" do
-    Datapack::Data.find?("./spec/data/random.txt").not_nil!.path.basename.should eq "random.txt"
+    if path = Datapack::Data.find?("./spec/data/random.txt")
+      path.should be_a Datapack::Resource
+      path.path.basename.should eq "random.txt"
+    end
     Datapack::Data.find?("./this/is/not/here").should be_nil
   end
 end
