@@ -1,4 +1,4 @@
-![Datapack CI](https://img.shields.io/github/actions/workflow/status/wyhaines/datapack.cr/ci.yml?branch=main&style=for-the-badge&logo=GitHub)
+[![Datapack.cr CI](https://github.com/wyhaines/datapack.cr/actions/workflows/build_docs.yml/badge.svg)](https://github.com/wyhaines/datapack.cr/actions/workflows/build_docs.yml)
 [![GitHub release](https://img.shields.io/github/release/wyhaines/datapack.cr.svg?style=for-the-badge)](https://github.com/wyhaines/datapack.cr/releases)
 ![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/wyhaines/datapack.cr/latest?style=for-the-badge)
 
