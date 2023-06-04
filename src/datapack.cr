@@ -1,8 +1,7 @@
+require "./version"
 require "splay_tree_map"
 
 module Datapack
-  VERSION = "0.1.0"
-
   # A `Resource` represents a single file. It is a simple structure, composed of four fields.
   struct Resource
     getter namespace : String = "default"
